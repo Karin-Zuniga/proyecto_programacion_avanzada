@@ -38,16 +38,16 @@ class Ciudadano():
         if isinstance(nombre_apellido,str):
             self.__nombre_apellido
 
-    def add_enfermedades(self, enfermedades):
-        if isinstance(enfermedades,Enfermedad):
+    def set_enfermedades(self, enfermedades):
+        if isinstance(enfermedades, list):
             self.__enfermedades.append(enfermedades)
    
     def set_comunidad(self, comunidad):
         if isinstance (comunidad, Comunidad):
             self.__comunidad = comunidad
 
-    def add_contactos(self, contactos):
-        if isinstance(contactos,Ciudadano):
+    def set_contactos(self, contactos):
+        if isinstance(contactos, list):
             self.__contactos.append(contactos)
     
     def set_estado(self, estado):

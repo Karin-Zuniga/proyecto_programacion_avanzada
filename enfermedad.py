@@ -1,6 +1,6 @@
 class Enfermedad():
-    def __init__(self):
-        self.__nombre = ""
+    def __init__(self, nombre):
+        self.__nombre = nombre
         self.__infeccion_probable = 0.0
         self.__promedio_pasos = 100000
         self.__enfermo = False

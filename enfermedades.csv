@@ -1,0 +1,21 @@
+,Nombre,Infeccion probable,Promedio pasos,Enfermo,Contador
+0,Diabetes tipo 2,0.0,100000,False,0
+1,Hipertensión arterial,0.0,100000,False,0
+2,Enfermedad pulmonar obstructiva crónica (EPOC),0.0,100000,False,0
+3,Enfermedad renal crónica,0.0,100000,False,0
+4,Artritis reumatoide,0.0,100000,False,0
+5,Enfermedades cardiovasculares,0.0,100000,False,0
+6,Cáncer crónico,0.0,100000,False,0
+7,Obesidad mórbida,0.0,100000,False,0
+8,Fibrosis quística,0.0,100000,False,0
+9,Esclerosis múltiple,0.0,100000,False,0
+10,Enfermedad de Crohn,0.0,100000,False,0
+11,Esquizofrenia,0.0,100000,False,0
+12,VIH/SIDA,0.0,100000,False,0
+13,Enfermedad de Parkinson,0.0,100000,False,0
+14,Alzheimer,0.0,100000,False,0
+15,Hepatitis crónica,0.0,100000,False,0
+16,Epilepsia,0.0,100000,False,0
+17,Lupus eritematoso sistémico,0.0,100000,False,0
+18,Hemofilia,0.0,100000,False,0
+19,Osteoporosis,0.0,100000,False,0
