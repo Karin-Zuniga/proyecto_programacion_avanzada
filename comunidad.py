@@ -1,7 +1,8 @@
 from enfermedad import Enfermedad
 
 class Comunidad():
-    def __init__(self):
+    def __init__(self, nombre):
+        self.__nombre = nombre
         self.__num_ciudadanos = 0
         self.__promedio_conexion_fisica = 0.0
         self.__enfermedad = ""
@@ -10,7 +11,9 @@ class Comunidad():
 
 
     #-------------------get--------------------
-
+    def get_nombre(self):
+        return self.__nombre
+    
     def get_num_ciudadanos(self):
         return self.__num_ciudadanos
 

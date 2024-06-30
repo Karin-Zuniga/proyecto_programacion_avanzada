@@ -12,17 +12,17 @@ import random
 
 
 
-def crear_enfermedad():
-    lista_enfermedades = ["Diabetes tipo 2", "Hipertensión arterial", "Enfermedad pulmonar obstructiva crónica (EPOC)", "Enfermedad renal crónica", "Artritis reumatoide", "Enfermedades cardiovasculares", "Cáncer crónico", "Obesidad mórbida", "Fibrosis quística", "Esclerosis múltiple", "Enfermedad de Crohn", "Esquizofrenia", "VIH/SIDA", "Enfermedad de Parkinson", "Alzheimer", "Hepatitis crónica", "Epilepsia", "Lupus eritematoso sistémico", "Hemofilia", "Osteoporosis"]
-    enfermedades_creadas = []
-    for enfermedad in lista_enfermedades:
-        nueva_enfermedad = Enfermedad(enfermedad)
-        enfermedades_creadas.append([nueva_enfermedad.get_nombre(),nueva_enfermedad.get_infeccion_probable(),nueva_enfermedad.get_promedio_pasos(),nueva_enfermedad.get_enfermo(), nueva_enfermedad.get_contador()])
-    headers = ["Nombre", "Infeccion probable", "Promedio pasos", "Enfermo", "Contador"]
-    df = pd.DataFrame(enfermedades_creadas, columns = headers)
-    df.to_csv("enfermedades.csv")
-    print("Creado archivo csv")
-#-----------------------Ciudadano-----------------
+# def crear_enfermedad():
+#     lista_enfermedades = ["Diabetes tipo 2", "Hipertensión arterial", "Enfermedad pulmonar obstructiva crónica (EPOC)", "Enfermedad renal crónica", "Artritis reumatoide", "Enfermedades cardiovasculares", "Cáncer crónico", "Obesidad mórbida", "Fibrosis quística", "Esclerosis múltiple", "Enfermedad de Crohn", "Esquizofrenia", "VIH/SIDA", "Enfermedad de Parkinson", "Alzheimer", "Hepatitis crónica", "Epilepsia", "Lupus eritematoso sistémico", "Hemofilia", "Osteoporosis"]
+#     enfermedades_creadas = []
+#     for enfermedad in lista_enfermedades:
+#         nueva_enfermedad = Enfermedad(enfermedad)
+#         enfermedades_creadas.append([nueva_enfermedad.get_nombre(),nueva_enfermedad.get_infeccion_probable(),nueva_enfermedad.get_promedio_pasos(),nueva_enfermedad.get_enfermo(), nueva_enfermedad.get_contador()])
+#     headers = ["Nombre", "Infeccion probable", "Promedio pasos", "Enfermo", "Contador"]
+#     df = pd.DataFrame(enfermedades_creadas, columns = headers)
+#     df.to_csv("enfermedades.csv")
+#     print("Creado archivo csv")
+# #-----------------------Ciudadano-----------------
 
 def crear_ciudadano():
 
@@ -30,17 +30,26 @@ def crear_ciudadano():
     file_nombres = pd.read_csv("nombres_apellidos.csv")
 
     nombre_apellido = pd.DataFrame(file_nombres).to_numpy()
-    rows = nombre_apellido.shape[0]
 
     archivo = []
     
+    lista_ciudadanos = []
     for nombre,apellido in nombre_apellido:
         ciudadano = Ciudadano( n, nombre +" "+ apellido, asignar_comunidad())
 
-        ciudadano = asignar_enfermedades(ciudadano)
-        archivo.append([ciudadano.get_id(), ciudadano.get_nombre_apellido(), ciudadano.get_enfermedad(), ciudadano.get_comunidad(), ciudadano.get_contactos(), ciudadano.get_estado()])
+        #ciudadano = asignar_enfermedades(ciudadano)
+        lista_ciudadanos.append(ciudadano)
         n +=1 
-        ciudadano = asignar_contactos(ciudadano)
+    lista_ciudadanos = asignar_contactos(lista_ciudadanos)
+    for ciudadano in lista_ciudadanos:
+        lista_contactos = []
+        print(ciudadano.get_contactos())
+        for contacto in ciudadano.get_contactos():
+           lista_contactos.append(contacto.get_nombre_apellido())
+        print(lista_contactos)
+        archivo.append([ciudadano.get_id(), ciudadano.get_nombre_apellido(), ciudadano.get_enfermedad(), ciudadano.get_comunidad(), lista_contactos, ciudadano.get_estado()])
+    #lista_ciudadanos = reorganizar_contactos(lista_ciudadanos)
+
     headers = ["ID","Nombre", "enfermedades", "Comunidad", "Contactos", "Estado"]
 
     df = pd.DataFrame(archivo, columns=headers)
@@ -73,33 +82,51 @@ def asignar_enfermedades(ciudadanos = Ciudadano):
     file_enfermedades = pd.read_csv("enfermedades.csv")
     enfermedades = file_enfermedades["Nombre"].tolist()
     
-    n = random.randint(0,3)
-    enfermedades_aleatorias = random.choices(enfermedades, k=n)
-    ciudadanos.set_enfermedades(enfermedades_aleatorias)
+    n = random.randint(0,2)
+    enfermedades_aleatorias = random.sample(enfermedades, k=n)
+    for enfermedad in enfermedades_aleatorias:
+        ciudadanos.set_enfermedades(enfermedad)
     return ciudadanos
 
     
 
 def asignar_comunidad():
-    comunidad_1 = Comunidad()
+    comunidad_1 = Comunidad("comunidad_1")
     return comunidad_1
 
-def asignar_contactos(ciudadanos = Ciudadano):
-    file_enfermedades = pd.read_csv("ciudadano.csv")
-    enfermedades = file_enfermedades["Nombre"].tolist()
+def asignar_contactos(lista_ciudadanos):
     
-    n = np.random.normal(4.0,2.0 )
-    n = int(n)
-    contactos = random.choices(enfermedades, k=n)
-    ciudadanos.set_contactos(contactos)
-    return ciudadanos
+    ciudadanos_con_contactos = []
+    for ciudadano in lista_ciudadanos:
+        n = np.random.normal(2.0,4.0 )
+        print(n)
+        n = int(n)
+        print(n)
+        contactos = random.choices(lista_ciudadanos, k=n)
+        print(contactos)
+        for contacto in contactos:
+            ciudadano.set_contactos(contacto)
+        ciudadanos_con_contactos.append(ciudadano)
+        
+    return ciudadanos_con_contactos
+
+def reorganizar_contactos(lista_ciudadanos):
+    for ciudadano in lista_ciudadanos:
+        for contacto in ciudadano.get_contactos():
+            print(contacto)
+            # if contacto.get_nombre() == ciudadano.get_nombre():
+            #     ciudadano.set_contactos(contacto) 
+
+    return lista_ciudadanos
+
+
 #------------------Fin Ciudadano------------------
 
 def contagiar():
     pass
 
 def main():
-    enfermedades = crear_enfermedad()
+    
     ciudadanos = crear_ciudadano()
 if __name__ == "__main__":
     main()

@@ -1,11 +1,11 @@
 ,ID,Nombre,enfermedades,Comunidad,Contactos,Estado
-0,100,Salvador Aldrete,"[['Cáncer crónico', 'Epilepsia']]",<comunidad.Comunidad object at 0x7f852a57b110>,"[['Rubén Pérez', 'Sofía Maldonado', 'Carmen Esparza', 'Salvador Aldrete']]",False
-1,101,Arturo Castro,[['Esclerosis múltiple']],<comunidad.Comunidad object at 0x7f85292f99d0>,"[['Carmen Esparza', 'Sofía Maldonado', 'Carolina Mercado']]",False
-2,102,Claudia Patricia Cisneros,"[['Diabetes tipo 2', 'Enfermedad de Crohn', 'Hipertensión arterial']]",<comunidad.Comunidad object at 0x7f852ae66630>,[['Rubén Pérez']],False
-3,103,Rubén Pérez,[[]],<comunidad.Comunidad object at 0x7f8529233440>,"[['Salvador Aldrete', 'Carolina Mercado']]",False
-4,104,Carolina Mercado,"[['Enfermedad de Parkinson', 'Enfermedad pulmonar obstructiva crónica (EPOC)', 'Esquizofrenia']]",<comunidad.Comunidad object at 0x7f85293d33b0>,"[['Claudia Patricia Cisneros', 'Óscar Palacios']]",False
-5,105,Óscar Palacios,[['Alzheimer']],<comunidad.Comunidad object at 0x7f852a088830>,"[['Sofía Maldonado', 'Rubén Pérez', 'Carolina Mercado']]",False
-6,106,Víctor Manuel Duarte,[['Hepatitis crónica']],<comunidad.Comunidad object at 0x7f852a430410>,"[['Óscar Palacios', 'Claudia Patricia Cisneros', 'Sofía Maldonado']]",False
-7,107,Carmen Esparza,[['Hepatitis crónica']],<comunidad.Comunidad object at 0x7f852a089640>,[['Sofía Maldonado']],False
-8,108,Javier Morales,[['Lupus eritematoso sistémico']],<comunidad.Comunidad object at 0x7f852a433d70>,"[['Javier Morales', 'Óscar Palacios']]",False
-9,109,Sofía Maldonado,[['Cáncer crónico']],<comunidad.Comunidad object at 0x7f8529772330>,"[['Óscar Palacios', 'Arturo Castro', 'Javier Morales', 'Carmen Esparza']]",False
+0,100,Salvador Aldrete,[],comunidad_1,[],False
+1,101,Arturo Castro,[],comunidad_1,"['Sofía Maldonado', 'Óscar Palacios', 'Arturo Castro', 'Carolina Mercado']",False
+2,102,Claudia Patricia Cisneros,[],comunidad_1,"['Arturo Castro', 'Arturo Castro', 'Salvador Aldrete']",False
+3,103,Rubén Pérez,[],comunidad_1,"['Víctor Manuel Duarte', 'Salvador Aldrete', 'Sofía Maldonado', 'Rubén Pérez', 'Carmen Esparza', 'Carmen Esparza', 'Óscar Palacios', 'Carmen Esparza', 'Arturo Castro']",False
+4,104,Carolina Mercado,[],comunidad_1,"['Carolina Mercado', 'Óscar Palacios', 'Salvador Aldrete', 'Javier Morales']",False
+5,105,Óscar Palacios,[],comunidad_1,['Claudia Patricia Cisneros'],False
+6,106,Víctor Manuel Duarte,[],comunidad_1,"['Rubén Pérez', 'Sofía Maldonado']",False
+7,107,Carmen Esparza,[],comunidad_1,['Javier Morales'],False
+8,108,Javier Morales,[],comunidad_1,"['Carolina Mercado', 'Carmen Esparza', 'Claudia Patricia Cisneros', 'Salvador Aldrete', 'Javier Morales', 'Óscar Palacios', 'Óscar Palacios', 'Sofía Maldonado', 'Rubén Pérez']",False
+9,109,Sofía Maldonado,[],comunidad_1,"['Rubén Pérez', 'Carmen Esparza', 'Carmen Esparza', 'Sofía Maldonado']",False

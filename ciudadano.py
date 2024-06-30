@@ -21,7 +21,7 @@ class Ciudadano():
         return self.__enfermedades
     
     def  get_comunidad(self):
-        return self.__comunidad
+        return self.__comunidad.get_nombre()
     
     def get_contactos(self):
         return self.__contactos
@@ -47,7 +47,7 @@ class Ciudadano():
             self.__comunidad = comunidad
 
     def set_contactos(self, contactos):
-        if isinstance(contactos, list):
+        if isinstance(contactos, Ciudadano):
             self.__contactos.append(contactos)
     
     def set_estado(self, estado):
