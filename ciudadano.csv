@@ -1,11 +1,11 @@
 ,ID,Nombre,enfermedades,Comunidad,Contactos,Estado
-0,100,Salvador Aldrete,[],comunidad_1,[],False
-1,101,Arturo Castro,[],comunidad_1,"['Sofía Maldonado', 'Óscar Palacios', 'Arturo Castro', 'Carolina Mercado']",False
-2,102,Claudia Patricia Cisneros,[],comunidad_1,"['Arturo Castro', 'Arturo Castro', 'Salvador Aldrete']",False
-3,103,Rubén Pérez,[],comunidad_1,"['Víctor Manuel Duarte', 'Salvador Aldrete', 'Sofía Maldonado', 'Rubén Pérez', 'Carmen Esparza', 'Carmen Esparza', 'Óscar Palacios', 'Carmen Esparza', 'Arturo Castro']",False
-4,104,Carolina Mercado,[],comunidad_1,"['Carolina Mercado', 'Óscar Palacios', 'Salvador Aldrete', 'Javier Morales']",False
-5,105,Óscar Palacios,[],comunidad_1,['Claudia Patricia Cisneros'],False
-6,106,Víctor Manuel Duarte,[],comunidad_1,"['Rubén Pérez', 'Sofía Maldonado']",False
-7,107,Carmen Esparza,[],comunidad_1,['Javier Morales'],False
-8,108,Javier Morales,[],comunidad_1,"['Carolina Mercado', 'Carmen Esparza', 'Claudia Patricia Cisneros', 'Salvador Aldrete', 'Javier Morales', 'Óscar Palacios', 'Óscar Palacios', 'Sofía Maldonado', 'Rubén Pérez']",False
-9,109,Sofía Maldonado,[],comunidad_1,"['Rubén Pérez', 'Carmen Esparza', 'Carmen Esparza', 'Sofía Maldonado']",False
+0,100,Salvador Aldrete,[],comunidad_1,"['Carolina Mercado', 'Javier Morales', 'Sofía Maldonado']",1
+1,101,Arturo Castro,[],comunidad_1,['Claudia Patricia Cisneros'],1
+2,102,Claudia Patricia Cisneros,[],comunidad_1,"['Carolina Mercado', 'Arturo Castro', 'Salvador Aldrete', 'Javier Morales']",1
+3,103,Rubén Pérez,[],comunidad_1,"['Arturo Castro', 'Salvador Aldrete']",1
+4,104,Carolina Mercado,[],comunidad_1,"['Rubén Pérez', 'Sofía Maldonado', 'Carmen Esparza']",1
+5,105,Óscar Palacios,[],comunidad_1,['Víctor Manuel Duarte'],1
+6,106,Víctor Manuel Duarte,[],comunidad_1,"['Óscar Palacios', 'Sofía Maldonado']",1
+7,107,Carmen Esparza,[],comunidad_1,"['Carolina Mercado', 'Javier Morales']",1
+8,108,Javier Morales,[],comunidad_1,"['Óscar Palacios', 'Carolina Mercado']",1
+9,109,Sofía Maldonado,[],comunidad_1,"['Óscar Palacios', 'Víctor Manuel Duarte', 'Claudia Patricia Cisneros']",1

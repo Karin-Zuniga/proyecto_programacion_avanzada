@@ -1,9 +1,8 @@
 class Enfermedad():
-    def __init__(self, nombre):
+    def __init__(self, nombre, inf_prob, pasos):
         self.__nombre = nombre
-        self.__infeccion_probable = 0.0
-        self.__promedio_pasos = 100000
-        self.__enfermo = False
+        self.__infeccion_probable = inf_prob
+        self.__promedio_pasos = pasos
         self.__contador = 0
 
 #--------------------get----------------

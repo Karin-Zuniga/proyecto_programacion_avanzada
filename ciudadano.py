@@ -7,8 +7,9 @@ class Ciudadano():
         self.__enfermedades = []
         self.__comunidad = comunidad
         self.__contactos = []
-        self.__estado = False
-
+        self.__estado = 1
+        #self.estado: 1=sano 2=enfermo 3=recuperado/muerto
+        
     #--------------get--------------------#
 
     def get_id(self):
@@ -49,7 +50,8 @@ class Ciudadano():
     def set_contactos(self, contactos):
         if isinstance(contactos, Ciudadano):
             self.__contactos.append(contactos)
+            
     
     def set_estado(self, estado):
-        if isinstance (estado, bool):
+        if isinstance (estado, int):
             self.__estado = estado
