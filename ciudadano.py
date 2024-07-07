@@ -1,5 +1,6 @@
 from comunidad import Comunidad
 from enfermedad import Enfermedad
+import numpy as np
 class Ciudadano():
     def __init__(self, id, nombre, comunidad):
         self.__id = id
@@ -9,7 +10,7 @@ class Ciudadano():
         self.__contactos = []
         self.__estado = 1
         #self.estado: 1=sano 2=enfermo 3=recuperado/muerto
-        
+
     #--------------get--------------------#
 
     def get_id(self):
@@ -40,8 +41,10 @@ class Ciudadano():
             self.__nombre_apellido
 
     def set_enfermedades(self, enfermedades):
-        if isinstance(enfermedades, list):
+        if isinstance(enfermedades,Enfermedad):
             self.__enfermedades.append(enfermedades)
+        else:
+            print("error al agregar")
    
     def set_comunidad(self, comunidad):
         if isinstance (comunidad, Comunidad):
@@ -53,5 +56,7 @@ class Ciudadano():
             
     
     def set_estado(self, estado):
-        if isinstance (estado, int):
-            self.__estado = estado
+        self.__estado = estado
+        print(self.get_estado())
+
+

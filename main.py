@@ -124,71 +124,75 @@ def asignar_contactos(lista_ciudadanos, comunidad_1):
         
     return ciudadanos_con_contactos
 
-def reorganizar_contactos(lista_ciudadanos):
-    for ciudadano in lista_ciudadanos:
-        print(ciudadano.get_nombre_apellido())
+# def reorganizar_contactos(lista_ciudadanos):
+#     for ciudadano in lista_ciudadanos:
+#         print(ciudadano.get_nombre_apellido())
         
-        for contacto in ciudadano.get_contactos():
-            for persona in contacto.get_contactos():
-            #    print(persona.get_nombre_apellido())
-                if persona.get_nombre_apellido() == ciudadano.get_nombre_apellido():  
-                    print(persona.get_nombre_apellido())  
-                    contacto.set_contactos(ciudadano)
-                    print(persona.get_contactos()[-1].get_nombre_apellido())
+#         for contacto in ciudadano.get_contactos():
+#             for persona in contacto.get_contactos():
+#             #    print(persona.get_nombre_apellido())
+#                 if persona.get_nombre_apellido() == ciudadano.get_nombre_apellido():  
+#                     print(persona.get_nombre_apellido())  
+#                     contacto.set_contactos(ciudadano)
+#                     print(persona.get_contactos()[-1].get_nombre_apellido())
                    
-                else:
-                    print("no se repite")
-            # if contacto.get_nombre() == ciudadano.get_nombre():
-            #           #     ciudadano.set_contactos(contacto) 
+#                 else:
+#                     print("no se repite")
+#             # if contacto.get_nombre() == ciudadano.get_nombre():
+#             #           #     ciudadano.set_contactos(contacto) 
         
-    return lista_ciudadanos
+#     return lista_ciudadanos
 
 
 #------------------Fin Ciudadano------------------
 
 def paciente_0(lista_ciudadanos):
-    virus = Enfermedad("virus",0.3,4)
-    lista_ciudadanos[0].set_enfermedades(virus)
-    lista_ciudadanos[0].set_estado(2)
+    virus = Enfermedad("virus",1.0,4)
+    lista_ciudadanos[-1].set_enfermedades(virus)
+    lista_ciudadanos[-1].set_estado(2)
     return lista_ciudadanos,virus
 
 
 
 def contagiar(lista_ciudadanos,virus):
     for ciudadano in lista_ciudadanos:
-        if ciudadano.get_estado() == 2:
+        if ciudadano.get_estado() == 2:       
             for contacto in ciudadano.get_contactos():
-                if contacto.get_estado == 1:
-                    lista_enfermedades = ciudadano.get_enfermedades()
-                    if lista_enfermedades == virus:
-                        infeccion = random.choice([1, 2], weights=[virus.infeccion_probable(),(1 - virus.infeccion_probable())])
-                        contacto.set_estado(infeccion)
-                        if contacto.get_estado == 2:
-                            contacto.set_enfermedades(virus)
+                if contacto.get_estado() == 1:
+                    a = virus.get_infeccion_probable()
+                    b = (1 - virus.get_infeccion_probable())
+                    valor = [1,2]
+                    infeccion = np.random.choice(valor, 1, p=(b,a))
+                    print(type(infeccion[0]))
+                    contacto.set_estado(infeccion[-1])
+                    print(contacto.get_nombre_apellido(), " ", contacto.get_estado())
 
+    return lista_ciudadanos           
+            
 
 def mostrar_info(lista_ciudadano, comunidad):
     sanos = 0
     enfermos = 0
     inmunes = 0
+    
     for ciudadano in lista_ciudadano:
         if ciudadano.get_estado() == 1 or ciudadano.get_estado() == 3:
             sanos = sanos + 1
-        elif ciudadano.get_estado == 2:
+        elif ciudadano.get_estado() == 2:
             enfermos = enfermos + 1
-
         if ciudadano.get_estado == 3:
             inmunes = inmunes + 1
-    print(f"En la comunidad {comunidad.get_nombre()} hay {enfermos} ciudadanos enfermos")
+    print(f"De {comunidad.get_num_ciudadanos()} ciudadanos en la comunidad {comunidad.get_nombre()} hay {enfermos} enfermos")
 
 def main():
     comunidad_1 = crear_comunidad()
     ciudadanos = crear_ciudadano(comunidad_1)
     contador = 0
+    ciudadanos,virus = paciente_0(ciudadanos)
+    
     while contador < 10:
-        ciudadanos,virus = paciente_0(ciudadanos)
-        contagiar(ciudadanos, virus)
         mostrar_info(ciudadanos,comunidad_1)
+        ciudadanos = contagiar(ciudadanos, virus)
         contador +=1
 
 
