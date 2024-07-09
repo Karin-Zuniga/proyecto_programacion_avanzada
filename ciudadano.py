@@ -57,6 +57,7 @@ class Ciudadano():
     
     def set_estado(self, estado):
         self.__estado = estado
-        print(self.get_estado())
+
+    
 
 

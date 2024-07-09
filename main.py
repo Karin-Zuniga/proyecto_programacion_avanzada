@@ -28,8 +28,8 @@ def crear_ciudadano(comunidad_1):
 
     n = 100
     file_nombres = pd.read_csv("nombres_apellidos.csv")
-
-    nombre_apellido = pd.DataFrame(file_nombres).to_numpy()
+    nombres = pd.DataFrame.sample(file_nombres, comunidad_1.get_num_ciudadanos())
+    nombre_apellido = pd.DataFrame(nombres).to_numpy()
 
     archivo = []
     
@@ -63,8 +63,8 @@ def crea_nombres():
     nombres = ["Ana", "Juan", "María", "Carlos", "Laura", "José", "Andrea", "David", "Sofía", "Alejandro", "Claudia", "Pedro", "Gabriela", "Fernando", "Natalia", "Luis", "Valeria", "Miguel", "Paola", "Jorge", "Daniela", "Ricardo", "Andrea", "Javier", "Adriana", "Diego", "Patricia", "Manuel", "Vanessa", "Marco", "Verónica", "Martín", "Carolina", "Óscar", "Pamela", "Eduardo", "Angélica", "Sergio", "Brenda", "Juan Carlos", "Esther", "Raúl", "Silvia", "Antonio", "Victoria", "Alan", "Diana", "Salvador", "Rosa", "Juan Pablo", "Elena", "Mario", "Lorena", "Israel", "Alma", "Héctor", "Mariana", "Gabriel", "Vanessa", "Guillermo", "Susana", "Roberto", "Ana María", "Ernesto", "Ana Laura", "Emilio", "Cecilia", "Arturo", "Luz", "Omar", "Alejandra", "Octavio", "Estela", "Ignacio", "Laura Elena", "Hugo", "Carmen", "Jorge Luis", "Alma Rosa", "Ángel", "Adrián", "Teresa", "Francisco", "Lorena", "Raúl", "Alma Delia", "Víctor", "Rosario", "Rubén", "Andrea", "Francisco Javier", "Margarita", "Efraín", "Martha", "Julio", "Ana Karen", "René", "Isabel", "Armando", "Patricia", "Leopoldo", "Inés", "Salvador", "Claudia Patricia", "Mauricio", "Brenda", "Víctor Manuel", "Alicia", "Federico", "Daniela", "Agustín", "Verónica", "Eduardo", "Carmen"]
     apellidos = ["Martínez", "González", "Rodríguez", "López", "Hernández", "Pérez", "Sánchez", "Ramírez", "Torres", "Flores", "Gómez", "Díaz", "Reyes", "Morales", "Ortiz", "Castro", "Ruiz", "Chávez", "Vásquez", "Ramos", "Álvarez", "Jiménez", "Fernández", "Gutiérrez", "Mendoza", "Soto", "Aguilar", "Silva", "Romero", "Mendoza", "Chavez", "Juárez", "Guerrero", "Palacios", "Maldonado", "Pinto", "Rojas", "Molina", "Salazar", "Herrera", "Vega", "Vargas", "Cortés", "Navarro", "Peña", "Luna", "Cruz", "León", "Campos", "Cabrera", "Montes", "Zamora", "Acosta", "Orozco", "Quintero", "Ibarra", "Escobar", "Barajas", "Guerrero", "Santana", "Miranda", "Espinoza", "Valencia", "Barrera", "Figueroa", "Lara", "Cervantes", "Moreno", "Bautista", "Valenzuela", "Guerra", "Aguirre", "Delgado", "Pacheco", "Gallardo", "Espino", "Mata", "Castañeda", "Rangel", "Becerra", "Dominguez", "Amaya", "Esparza", "Olivera", "Osorio", "Bustamante", "Rosales", "Aldrete", "Olivares", "Escamilla", "Delatorre", "Báez", "Arellano", "Pineda", "Cisneros", "Beltrán", "Medina", "Castañeda", "Duarte", "Mercado", "Verdugo", "Escobedo", "Cázares", "Mares", "Elizondo", "Benitez", "Calderón"]
 
-    nombres_aleatorios = random.choices(nombres, k=10)
-    apellidos_aleatorios = random.choices(apellidos, k=10)
+    nombres_aleatorios = random.choices(nombres, k=1000000)
+    apellidos_aleatorios = random.choices(apellidos, k=100000)
         
     nombres_apellidos = list(zip(nombres_aleatorios, apellidos_aleatorios))
 
@@ -95,7 +95,7 @@ def crear_comunidad():
     comunidad_1.set_num_ciudadanos(10)
     comunidad_1.set_num_infectados(0)
     comunidad_1.set_probabilidad_conexion_fisica(0.7)
-    comunidad_1.set_promedio_conexion_fisica(2.5)
+    comunidad_1.set_promedio_conexion_fisica(5.0)
 
     return comunidad_1
 
@@ -147,28 +147,42 @@ def asignar_contactos(lista_ciudadanos, comunidad_1):
 #------------------Fin Ciudadano------------------
 
 def paciente_0(lista_ciudadanos):
-    virus = Enfermedad("virus",1.0,4)
+    virus = Enfermedad("virus",0.3,4)
     lista_ciudadanos[-1].set_enfermedades(virus)
     lista_ciudadanos[-1].set_estado(2)
     return lista_ciudadanos,virus
 
 
 
-def contagiar(lista_ciudadanos,virus):
-    for ciudadano in lista_ciudadanos:
-        if ciudadano.get_estado() == 2:       
+def contagiar(lista_ciudadanos,virus,comunidad):
+    for ciudadano in lista_ciudadanos:        
+        if ciudadano.get_estado() == 2:
+
+            contacto_estrecho = []
             for contacto in ciudadano.get_contactos():
-                if contacto.get_estado() == 1:
-                    a = virus.get_infeccion_probable()
-                    b = (1 - virus.get_infeccion_probable())
-                    valor = [1,2]
-                    infeccion = np.random.choice(valor, 1, p=(b,a))
-                    print(type(infeccion[0]))
-                    contacto.set_estado(infeccion[-1])
-                    print(contacto.get_nombre_apellido(), " ", contacto.get_estado())
+                seleccion = np.random.choice([True, False], p=[comunidad.get_probabilidad_conexion_fisica(), 1-comunidad.get_probabilidad_conexion_fisica()])
+                print(contacto.get_nombre_apellido(), seleccion)
+                if seleccion:
+                    contacto_estrecho.append(contacto)
+                for persona in contacto_estrecho:
+                    if persona.get_estado() == 1:
+                        a = virus.get_infeccion_probable()
+                        b = (1 - virus.get_infeccion_probable())
+                        valor = [1,2]
+                        infeccion = np.random.choice(valor, 1, p=(b,a))
+
+                        contacto.set_estado(infeccion[0])
+                        if contacto.get_estado == 2:
+                            contacto.set_enfermedades(virus)
+                            comunidad.set_num_infectados(comunidad.get_num_infectados + 1)
+                        
 
     return lista_ciudadanos           
-            
+
+def recuperarse(lista_ciudadanos):
+    for ciudadano in lista_ciudadanos:
+        if ciudadano.get_estado() == 2:
+            pass    
 
 def mostrar_info(lista_ciudadano, comunidad):
     sanos = 0
@@ -185,6 +199,7 @@ def mostrar_info(lista_ciudadano, comunidad):
     print(f"De {comunidad.get_num_ciudadanos()} ciudadanos en la comunidad {comunidad.get_nombre()} hay {enfermos} enfermos")
 
 def main():
+    crea_nombres()
     comunidad_1 = crear_comunidad()
     ciudadanos = crear_ciudadano(comunidad_1)
     contador = 0
@@ -192,9 +207,10 @@ def main():
     
     while contador < 10:
         mostrar_info(ciudadanos,comunidad_1)
-        ciudadanos = contagiar(ciudadanos, virus)
+        ciudadanos = contagiar(ciudadanos, virus, comunidad_1)
         contador +=1
 
 
 if __name__ == "__main__":
     main()
+

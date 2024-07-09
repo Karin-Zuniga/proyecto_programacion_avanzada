@@ -5,7 +5,7 @@ class Comunidad():
         self.__nombre = nombre
         self.__num_ciudadanos = 0
         self.__promedio_conexion_fisica = 0.0
-        self.__enfermedad = ""
+        self.__enfermedad = None
         self.__num_infectados = 0
         self.__probabilidad_conexion_fisica = 0.0
 
@@ -61,3 +61,5 @@ class Comunidad():
         if isinstance(probabilidad_conexion_fisica, float):
             self.__probabilidad_conexion_fisica = probabilidad_conexion_fisica
 
+
+    
