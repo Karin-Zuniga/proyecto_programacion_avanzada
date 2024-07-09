@@ -92,7 +92,7 @@ def crea_nombres():
 
 def crear_comunidad():
     comunidad_1 = Comunidad("comunidad_1")
-    comunidad_1.set_num_ciudadanos(10)
+    comunidad_1.set_num_ciudadanos(1000)
     comunidad_1.set_num_infectados(0)
     comunidad_1.set_probabilidad_conexion_fisica(0.7)
     comunidad_1.set_promedio_conexion_fisica(5.0)
@@ -147,9 +147,10 @@ def asignar_contactos(lista_ciudadanos, comunidad_1):
 #------------------Fin Ciudadano------------------
 
 def paciente_0(lista_ciudadanos):
-    virus = Enfermedad("virus",0.3,4)
+    virus = Enfermedad("virus",0.3,2)
     lista_ciudadanos[-1].set_enfermedades(virus)
     lista_ciudadanos[-1].set_estado(2)
+    lista_ciudadanos[-1].set_etapa_enfermedad(virus.get_promedio_pasos())
     return lista_ciudadanos,virus
 
 
@@ -161,8 +162,7 @@ def contagiar(lista_ciudadanos,virus,comunidad):
             contacto_estrecho = []
             for contacto in ciudadano.get_contactos():
                 seleccion = np.random.choice([True, False], p=[comunidad.get_probabilidad_conexion_fisica(), 1-comunidad.get_probabilidad_conexion_fisica()])
-                print(contacto.get_nombre_apellido(), seleccion)
-                if seleccion:
+                if seleccion == True:
                     contacto_estrecho.append(contacto)
                 for persona in contacto_estrecho:
                     if persona.get_estado() == 1:
@@ -172,17 +172,27 @@ def contagiar(lista_ciudadanos,virus,comunidad):
                         infeccion = np.random.choice(valor, 1, p=(b,a))
 
                         contacto.set_estado(infeccion[0])
-                        if contacto.get_estado == 2:
-                            contacto.set_enfermedades(virus)
-                            comunidad.set_num_infectados(comunidad.get_num_infectados + 1)
                         
+                        if contacto.get_estado() == 2:
+                            contacto.set_enfermedades(virus)
+                            num_infectados = comunidad.get_num_infectados() + 1
+                            comunidad.set_num_infectados(num_infectados)
+                            contacto.set_etapa_enfermedad(virus.get_promedio_pasos())
+                            
+                        
+                            
 
     return lista_ciudadanos           
 
 def recuperarse(lista_ciudadanos):
     for ciudadano in lista_ciudadanos:
         if ciudadano.get_estado() == 2:
-            pass    
+            etapa = ciudadano.get_etapa_enfermedad() - 1
+            ciudadano.set_etapa_enfermedad(etapa)
+            if ciudadano.get_etapa_enfermedad() == 0:
+                ciudadano.set_estado(3)
+                
+    return lista_ciudadanos
 
 def mostrar_info(lista_ciudadano, comunidad):
     sanos = 0
@@ -190,13 +200,15 @@ def mostrar_info(lista_ciudadano, comunidad):
     inmunes = 0
     
     for ciudadano in lista_ciudadano:
-        if ciudadano.get_estado() == 1 or ciudadano.get_estado() == 3:
+        if ciudadano.get_estado() == 1:
             sanos = sanos + 1
         elif ciudadano.get_estado() == 2:
             enfermos = enfermos + 1
-        if ciudadano.get_estado == 3:
+        else:
             inmunes = inmunes + 1
+    comunidad.set_num_infectados(enfermos)
     print(f"De {comunidad.get_num_ciudadanos()} ciudadanos en la comunidad {comunidad.get_nombre()} hay {enfermos} enfermos")
+    
 
 def main():
     crea_nombres()
@@ -205,8 +217,9 @@ def main():
     contador = 0
     ciudadanos,virus = paciente_0(ciudadanos)
     
-    while contador < 10:
+    while contador < 1000:
         mostrar_info(ciudadanos,comunidad_1)
+        ciudadanos = recuperarse(ciudadanos)
         ciudadanos = contagiar(ciudadanos, virus, comunidad_1)
         contador +=1
 

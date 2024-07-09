@@ -10,7 +10,7 @@ class Ciudadano():
         self.__contactos = []
         self.__estado = 1
         #self.estado: 1=sano 2=enfermo 3=recuperado/muerto
-
+        self.__etapa_enfermedad = 0
     #--------------get--------------------#
 
     def get_id(self):
@@ -30,6 +30,9 @@ class Ciudadano():
 
     def get_estado(self):
         return self.__estado
+    
+    def get_etapa_enfermedad(self):
+        return self.__etapa_enfermedad
     #-------------set----------------------#
     
     def set_id(self, id):
@@ -58,6 +61,9 @@ class Ciudadano():
     def set_estado(self, estado):
         self.__estado = estado
 
+    def set_etapa_enfermedad(self, etapa):
+        if isinstance(etapa,int):
+            self.__etapa_enfermedad = etapa
     
 
 
