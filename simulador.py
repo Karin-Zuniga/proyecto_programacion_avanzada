@@ -2,7 +2,7 @@ import sys
 import gi
 gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk,Gio
-
+import pandas as pd
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -13,11 +13,14 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_title("Simulador epidemiologico")
 
         #Box ppal
-        main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20,
-            margin_top=20, margin_bottom=20,
-            margin_start=20, margin_end=20)
-        
+        self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        self.set_child(self.main_box)
 
+
+
+        self.textview = Gtk.TextView()
+        self.textbuffer = self.textview.get_buffer()
+        self.main_box.append(self.textview)
         #menu  
         menu = Gio.Menu.new()
         self.popover = Gtk.PopoverMenu()
@@ -35,7 +38,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.add_action(about_menu)
         menu.append("Acerca de", "win.about")
 
-
+        self.mostrar_csv()
 
     def show_about_dialog(self, action, param):
         self.about = Gtk.AboutDialog()
@@ -43,6 +46,13 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about.set_copyright("Copyright 2024 Karin Zuñiga Muñoz")
         self.about.set_license_type(Gtk.License.GPL_3_0)
         self.about.set_visible(True)
+
+    def mostrar_csv(self):
+
+        df = pd.read_csv("archivos.csv")
+        
+        csv_text = df.to_string(index=False)
+        self.textbuffer.set_text(csv_text)
 
 
 class MyApp(Gtk.Application):

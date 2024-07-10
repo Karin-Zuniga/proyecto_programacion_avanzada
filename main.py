@@ -210,6 +210,22 @@ def mostrar_info(lista_ciudadano, comunidad):
     print(f"De {comunidad.get_num_ciudadanos()} ciudadanos en la comunidad {comunidad.get_nombre()} hay {enfermos} enfermos")
     
 
+def imprimir_csv(lista_ciudadanos):
+    archivo = []
+    for ciudadano in lista_ciudadanos:
+        
+        lista_contactos = []
+        for contacto in ciudadano.get_contactos():
+           lista_contactos.append(contacto.get_nombre_apellido())
+        archivo.append([ciudadano.get_id(), ciudadano.get_nombre_apellido(), ciudadano.get_enfermedad(), ciudadano.get_comunidad(), lista_contactos, ciudadano.get_estado()])
+    headers = ["ID","Nombre", "enfermedades", "Comunidad", "Contactos", "Estado"]
+
+    df = pd.DataFrame(archivo, columns=headers)
+    df.to_csv("archivos.csv")
+    
+    
+
+
 def main():
     crea_nombres()
     comunidad_1 = crear_comunidad()
@@ -222,7 +238,7 @@ def main():
         ciudadanos = recuperarse(ciudadanos)
         ciudadanos = contagiar(ciudadanos, virus, comunidad_1)
         contador +=1
-
+        imprimir_csv(ciudadanos)
 
 if __name__ == "__main__":
     main()
