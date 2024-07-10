@@ -15,9 +15,6 @@ class Enfermedad():
     def get_promedio_pasos(self):
         return self.__promedio_pasos
     
-    def get_enfermo(self):
-        return self.__enfermo
-    
     def get_contador(self):
         return self.__contador
 #--------------------set----------------
@@ -34,9 +31,6 @@ class Enfermedad():
         if isinstance(promedio_pasos, int):
             self.__promedio_pasos = promedio_pasos
     
-    def set_enfermo(self, enfermo):
-        if isinstance(enfermo,bool):
-            self.__enfermo = enfermo
     
     def set_contador(self, contador):
         if isinstance(contador, int):

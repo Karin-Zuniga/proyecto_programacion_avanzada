@@ -16,6 +16,18 @@ class MainWindow(Gtk.ApplicationWindow):
         self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.set_child(self.main_box)
 
+        #botones adelantar y retroceder
+        button_box = Gtk.Box(spacing=6)
+        self.main_box.append(button_box)
+
+
+        prev_button = Gtk.Button(label="Anterior")
+        prev_button.connect("clicked", self.on_prev_clicked)
+        button_box.append(prev_button)
+
+        next_button = Gtk.Button(label="Siguiente")
+        next_button.connect("clicked", self.on_next_clicked)
+        button_box.append(next_button)
 
 
         self.textview = Gtk.TextView()
@@ -38,7 +50,13 @@ class MainWindow(Gtk.ApplicationWindow):
         self.add_action(about_menu)
         menu.append("Acerca de", "win.about")
 
+        #scroll
+        scrolled_window = Gtk.ScrolledWindow()
+        self.set_child(scrolled_window)
+        
+        
         self.mostrar_csv()
+        scrolled_window.set_child(self.treeview)
 
     def show_about_dialog(self, action, param):
         self.about = Gtk.AboutDialog()
@@ -48,11 +66,21 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about.set_visible(True)
 
     def mostrar_csv(self):
+        self.listore = Gtk.ListStore(int, int, str, str, str, str, int)
+        
+       
+        self.treeview = Gtk.TreeView(model=self.listore)
+        for i, column_title in enumerate(["indice","ID","Nombre", "enfermedades", "Comunidad", "Contactos", "Estado"]):
+            renderer = Gtk.CellRendererText()
+            column = Gtk.TreeViewColumn(column_title, renderer, text=i)
+            self.treeview.append_column(column)
+
+        self.main_box.append(self.treeview)
 
         df = pd.read_csv("archivos.csv")
-        
-        csv_text = df.to_string(index=False)
-        self.textbuffer.set_text(csv_text)
+        data = df.to_records(index=False)
+        for row in data:
+            self.listore.append(list(row))
 
 
 class MyApp(Gtk.Application):

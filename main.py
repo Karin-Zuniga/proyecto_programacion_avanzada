@@ -92,7 +92,7 @@ def crea_nombres():
 
 def crear_comunidad():
     comunidad_1 = Comunidad("comunidad_1")
-    comunidad_1.set_num_ciudadanos(1000)
+    comunidad_1.set_num_ciudadanos(100)
     comunidad_1.set_num_infectados(0)
     comunidad_1.set_probabilidad_conexion_fisica(0.7)
     comunidad_1.set_promedio_conexion_fisica(5.0)
@@ -147,7 +147,7 @@ def asignar_contactos(lista_ciudadanos, comunidad_1):
 #------------------Fin Ciudadano------------------
 
 def paciente_0(lista_ciudadanos):
-    virus = Enfermedad("virus",0.3,2)
+    virus = Enfermedad("virus",0.4,10)
     lista_ciudadanos[-1].set_enfermedades(virus)
     lista_ciudadanos[-1].set_estado(2)
     lista_ciudadanos[-1].set_etapa_enfermedad(virus.get_promedio_pasos())
@@ -174,7 +174,7 @@ def contagiar(lista_ciudadanos,virus,comunidad):
                         contacto.set_estado(infeccion[0])
                         
                         if contacto.get_estado() == 2:
-                            contacto.set_enfermedades(virus)
+                            
                             num_infectados = comunidad.get_num_infectados() + 1
                             comunidad.set_num_infectados(num_infectados)
                             contacto.set_etapa_enfermedad(virus.get_promedio_pasos())
@@ -210,18 +210,21 @@ def mostrar_info(lista_ciudadano, comunidad):
     print(f"De {comunidad.get_num_ciudadanos()} ciudadanos en la comunidad {comunidad.get_nombre()} hay {enfermos} enfermos")
     
 
-def imprimir_csv(lista_ciudadanos):
+def imprimir_csv(lista_ciudadanos, contador):
     archivo = []
     for ciudadano in lista_ciudadanos:
         
         lista_contactos = []
         for contacto in ciudadano.get_contactos():
            lista_contactos.append(contacto.get_nombre_apellido())
-        archivo.append([ciudadano.get_id(), ciudadano.get_nombre_apellido(), ciudadano.get_enfermedad(), ciudadano.get_comunidad(), lista_contactos, ciudadano.get_estado()])
+        enfermedades = []
+        for enfermedad in ciudadano.get_enfermedad():
+            enfermedades.append(enfermedad.get_nombre())
+        archivo.append([ciudadano.get_id(), ciudadano.get_nombre_apellido(), enfermedades, ciudadano.get_comunidad(), lista_contactos, ciudadano.get_estado()])
     headers = ["ID","Nombre", "enfermedades", "Comunidad", "Contactos", "Estado"]
 
     df = pd.DataFrame(archivo, columns=headers)
-    df.to_csv("archivos.csv")
+    df.to_csv(f"Archivo {contador + 1}")
     
     
 
@@ -233,12 +236,13 @@ def main():
     contador = 0
     ciudadanos,virus = paciente_0(ciudadanos)
     
-    while contador < 1000:
+    while contador < 100:
         mostrar_info(ciudadanos,comunidad_1)
-        ciudadanos = recuperarse(ciudadanos)
         ciudadanos = contagiar(ciudadanos, virus, comunidad_1)
+        ciudadanos = recuperarse(ciudadanos)
         contador +=1
-        imprimir_csv(ciudadanos)
+        
+        imprimir_csv(ciudadanos,contador)
 
 if __name__ == "__main__":
     main()
