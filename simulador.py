@@ -54,6 +54,7 @@ class MainWindow(Gtk.ApplicationWindow):
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_child(self.treeview)
         self.main_box.append(scrolled_window)
+        scrolled_window.set_vexpand(True)
 
         file = f"archivo_{self.current_index}.csv"
         self.mostrar_csv(file)

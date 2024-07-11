@@ -191,14 +191,16 @@ def main():
     ciudadanos = crear_ciudadano(comunidad_1)
     contador = 0
     ciudadanos,virus = paciente_0(ciudadanos)
-    
+    array = []
     while contador < 10:
+        imprimir_csv(ciudadanos,contador)
         mostrar_info(ciudadanos,comunidad_1)
+        np.append(array, comunidad_1.get_num_infectados())
         ciudadanos = contagiar(ciudadanos, virus, comunidad_1)
         ciudadanos = recuperarse(ciudadanos)
+
         contador +=1
-        
-        imprimir_csv(ciudadanos,contador)
+    print(array)
     app = MyApp()
     app.run(sys.argv)
 
