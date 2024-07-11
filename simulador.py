@@ -6,7 +6,7 @@ import pandas as pd
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
+        self.set_default_size(800, 600)
         #header
         header = Gtk.HeaderBar.new()
         self.set_titlebar(titlebar=header)
@@ -17,6 +17,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_child(self.main_box)
 
         #botones adelantar y retroceder
+        self.current_index = 2
         button_box = Gtk.Box(spacing=6)
         self.main_box.append(button_box)
 
@@ -29,10 +30,6 @@ class MainWindow(Gtk.ApplicationWindow):
         next_button.connect("clicked", self.on_next_clicked)
         button_box.append(next_button)
 
-
-        self.textview = Gtk.TextView()
-        self.textbuffer = self.textview.get_buffer()
-        self.main_box.append(self.textview)
         #menu  
         menu = Gio.Menu.new()
         self.popover = Gtk.PopoverMenu()
@@ -51,12 +48,15 @@ class MainWindow(Gtk.ApplicationWindow):
         menu.append("Acerca de", "win.about")
 
         #scroll
+        
+        self.liststore = None
+        self.treeview = Gtk.TreeView()
         scrolled_window = Gtk.ScrolledWindow()
-        self.set_child(scrolled_window)
-        
-        
-        self.mostrar_csv()
         scrolled_window.set_child(self.treeview)
+        self.main_box.append(scrolled_window)
+
+        file = f"archivo_{self.current_index}.csv"
+        self.mostrar_csv(file)
 
     def show_about_dialog(self, action, param):
         self.about = Gtk.AboutDialog()
@@ -65,22 +65,51 @@ class MainWindow(Gtk.ApplicationWindow):
         self.about.set_license_type(Gtk.License.GPL_3_0)
         self.about.set_visible(True)
 
-    def mostrar_csv(self):
-        self.listore = Gtk.ListStore(int, int, str, str, str, str, int)
+    def mostrar_csv(self, file):
         
-       
-        self.treeview = Gtk.TreeView(model=self.listore)
-        for i, column_title in enumerate(["indice","ID","Nombre", "enfermedades", "Comunidad", "Contactos", "Estado"]):
+   
+        df = pd.read_csv(file)
+
+        if self.liststore:
+            self.treeview.set_model(None)
+            self.remove_all_columns()
+        column_types = (int,int, str,str,str,str,int,int)
+        self.liststore = Gtk.ListStore(*column_types)
+
+        for i, column_title in enumerate(df.columns):
             renderer = Gtk.CellRendererText()
             column = Gtk.TreeViewColumn(column_title, renderer, text=i)
             self.treeview.append_column(column)
 
-        self.main_box.append(self.treeview)
 
-        df = pd.read_csv("archivos.csv")
-        data = df.to_records(index=False)
-        for row in data:
-            self.listore.append(list(row))
+
+        for row in df.itertuples(index=False):
+            self.liststore.append(list(row))
+        
+        self.treeview.set_model(self.liststore)
+
+    
+        self.main_box.append(self.treeview)
+        
+        
+    
+    def on_prev_clicked(self, button):
+        if self.current_index > 0:
+            self.current_index -= 1
+            self.mostrar_csv(f"archivo_{self.current_index}.csv")
+
+    def on_next_clicked(self, button):
+        if self.current_index > 0:
+            self.current_index += 1
+            self.mostrar_csv(f"archivo_{self.current_index}.csv")
+
+
+    def remove_all_columns(self):
+       
+        columns = self.treeview.get_columns()
+        for column in columns:
+            self.treeview.remove_column(column)
+
 
 
 class MyApp(Gtk.Application):
@@ -105,6 +134,5 @@ class MyApp(Gtk.Application):
         Gtk.Application.do_shutdown(self)
 
 
-app = MyApp()
-app.run(sys.argv)
+
 

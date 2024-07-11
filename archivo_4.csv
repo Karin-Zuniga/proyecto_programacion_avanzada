@@ -1,0 +1,101 @@
+,ID,Nombre,enfermedades,Comunidad,Contactos,Estado,Etapa enfermedad
+0,100,Federico Pérez,[],comunidad_1,"['Gabriela Romero', 'Ignacio Álvarez', 'Víctor Elizondo', 'Agustín Martínez', 'Andrea Becerra', 'Juan Carlos Campos']",1,0
+1,101,Ana María Castañeda,[],comunidad_1,"['José Soto', 'Alma Gutiérrez', 'Inés Pineda', 'Gabriel Benitez', 'Vanessa Guerrero']",1,0
+2,102,Alicia León,[],comunidad_1,"['Héctor Elizondo', 'Gabriela Medina', 'Laura Elena Palacios', 'Sergio Duarte', 'Alan Rodríguez']",2,9
+3,103,Patricia Chávez,[],comunidad_1,"['Victoria Vásquez', 'Lorena Ibarra', 'Gabriela Romero', 'Gabriela Medina', 'Rubén Becerra', 'Javier Lara']",2,9
+4,104,Victoria Vásquez,[],comunidad_1,"['Agustín Martínez', 'Daniela Escobar', 'Roberto Sánchez', 'Javier Bautista', 'Rosario Orozco']",2,9
+5,105,Adriana Cervantes,[],comunidad_1,"['Salvador Delgado', 'Vanessa Navarro', 'José Delatorre', 'Alicia Flores', 'José Soto']",2,8
+6,106,Inés Pineda,[],comunidad_1,"['José Beltrán', 'Elena Espinoza', 'Angélica Moreno', 'Víctor Elizondo']",2,8
+7,107,Margarita Benitez,[],comunidad_1,"['Eduardo Aldrete', 'Manuel Escobar', 'Agustín Martínez', 'Jorge Luis Aguilar']",2,8
+8,108,David Palacios,[],comunidad_1,"['Omar Luna', 'Andrea González', 'Alicia León', 'Eduardo Díaz', 'Teresa Delatorre']",2,9
+9,109,Salvador Delgado,[],comunidad_1,"['Juan Carlos Campos', 'Alma Rosa Castro', 'Gabriel Benitez', 'Vanessa Sánchez']",1,0
+10,110,Juan Pablo Aldrete,[],comunidad_1,"['Juan López', 'Lorena Ibarra', 'Adriana Guerrero']",1,10
+11,111,Ana María Luna,[],comunidad_1,"['Laura Elena Palacios', 'Roberto Sánchez', 'Manuel Escobar', 'Adriana Cervantes']",2,9
+12,112,Gabriel Osorio,[],comunidad_1,"['Rosario Orozco', 'Francisco Hernández', 'Alicia Flores', 'Roberto Castañeda']",2,9
+13,113,Margarita Palacios,[],comunidad_1,"['Julio Gómez', 'Margarita Benitez', 'Rubén Acosta', 'Andrea Chavez']",2,9
+14,114,Estela Aldrete,[],comunidad_1,"['Daniela Escobar', 'Daniela Delatorre']",1,0
+15,115,Vanessa Navarro,[],comunidad_1,"['Roberto Silva', 'Daniela Delatorre', 'Victoria Vásquez', 'Eduardo Díaz']",2,9
+16,116,José Soto,[],comunidad_1,"['Gabriel Benitez', 'Inés Pineda', 'Elena Espinoza', 'Laura Elena Palacios', 'Julio Gómez']",1,10
+17,117,Andrea González,[],comunidad_1,"['José Soto', 'José Miranda', 'Vanessa Guerrero']",1,0
+18,118,Natalia Ramírez,[],comunidad_1,"['José Miranda', 'Julio Gómez', 'Victoria Vásquez', 'Javier Bautista']",1,0
+19,119,Natalia Bustamante,[],comunidad_1,"['Julio Gómez', 'Margarita Palacios', 'Vanessa Navarro', 'Ignacio Álvarez']",2,9
+20,120,Daniela Delatorre,[],comunidad_1,"['Sergio Duarte', 'Francisco Hernández', 'Vanessa Sánchez']",1,0
+21,121,José Beltrán,[],comunidad_1,"['José Delatorre', 'Estela Aldrete', 'David Palacios', 'Laura Elena Palacios', 'Lorena Ibarra']",2,9
+22,122,Óscar Hernández,[],comunidad_1,"['Alma Rosa Castro', 'Ignacio Álvarez', 'José Soto', 'Margarita Rodríguez', 'Pamela Aldrete', 'Efraín Beltrán']",1,0
+23,123,Laura Elena Palacios,[],comunidad_1,"['Eduardo Aldrete', 'Roberto Sánchez', 'José Beltrán', 'Patricia Morales', 'Adriana Cervantes']",1,0
+24,124,Gabriel Benitez,[],comunidad_1,"['Pamela Chavez', 'Margarita Benitez', 'Mauricio Molina', 'Andrea Luna', 'Efraín Martínez']",1,9
+25,125,Alma Rosa Castro,[],comunidad_1,"['Efraín Martínez', 'Verónica Vásquez', 'Roberto Castañeda', 'Salvador Delgado', 'Andrea Chavez', 'Estela Aldrete']",1,0
+26,126,Manuel Escobar,[],comunidad_1,"['Jorge Luis Aguilar', 'Javier Bautista', 'Óscar Mata', 'José Miranda']",2,9
+27,127,María Díaz,[],comunidad_1,"['Laura Elena Palacios', 'Andrea Campos', 'Roberto Castañeda', 'Adriana Guerrero']",1,10
+28,128,Jorge Luis Aguilar,[],comunidad_1,"['Jorge Luis Ortiz', 'Margarita Rodríguez', 'Salvador Delgado']",2,9
+29,129,Javier Bautista,[],comunidad_1,"['Victoria Vásquez', 'Eduardo Díaz', 'Pamela Chavez', 'Omar Luna', 'Inés Delatorre']",2,9
+30,130,Eduardo Díaz,[],comunidad_1,"['Inés Delatorre', 'Daniela Osorio', 'Margarita Palacios', 'Efraín Martínez', 'Alan Rodríguez']",2,9
+31,131,Rubén Becerra,[],comunidad_1,"['Alicia González', 'Ana Laura Amaya', 'Efraín Beltrán', 'Gabriel Osorio']",1,0
+32,132,Andrea Chavez,[],comunidad_1,"['Rosario Orozco', 'Ana María Fernández', 'Raúl Orozco']",1,0
+33,133,Andrea Luna,[],comunidad_1,"['Salvador Delgado', 'Roberto Sánchez', 'Andrea Campos', 'Gabriel Osorio']",2,8
+34,134,Javier Lara,[],comunidad_1,"['Carolina Espino', 'Ana María Luna', 'Margarita Benitez']",1,0
+35,135,Patricia Morales,[],comunidad_1,"['Rubén Becerra', 'Laura Elena Palacios', 'Armando Vega', 'Efraín Beltrán', 'José Beltrán', 'Alicia González', 'Javier Bautista']",1,0
+36,136,Andrea Becerra,[],comunidad_1,"['Javier Bautista', 'Ignacio Álvarez', 'Roberto Sánchez', 'Julio Gómez']",1,0
+37,137,Roberto Castañeda,[],comunidad_1,"['Andrea Campos', 'Laura Elena Palacios', 'Eduardo Aldrete', 'Armando Vega']",2,9
+38,138,Ana María Fernández,[],comunidad_1,"['Ana María Castañeda', 'Daniela Delatorre', 'Omar Ortiz', 'Patricia Morales', 'Juan Barrera']",1,0
+39,139,Ignacio Álvarez,[],comunidad_1,"['Estela Aldrete', 'Ana Laura López', 'Javier Bautista', 'Natalia Bustamante']",2,9
+40,140,Sofía Aguilar,[],comunidad_1,"['Margarita Palacios', 'Andrea Luna', 'Óscar Mata', 'Carolina Espino', 'Efraín Mares', 'María Díaz', 'Roberto Sánchez']",1,0
+41,141,Efraín Beltrán,[],comunidad_1,"['Ana María Luna', 'José Miranda', 'Gabriel Soto', 'Francisco Hernández']",2,9
+42,142,Juan Carlos Campos,[],comunidad_1,"['Gabriela Medina', 'Sergio Duarte', 'Roberto Castañeda', 'Eduardo Mares', 'Federico Pérez']",2,9
+43,143,José Delatorre,[],comunidad_1,"['Sofía Aguilar', 'David Palacios', 'Manuel Escobar', 'Inés Delatorre', 'Andrea Campos']",2,9
+44,144,Sergio Duarte,[],comunidad_1,"['Alma Gutiérrez', 'Roberto Silva', 'Inés Pineda', 'Omar Ortiz']",1,0
+45,145,Efraín Mares,[],comunidad_1,"['Rosario Orozco', 'Margarita Rodríguez', 'Natalia Bustamante', 'Víctor Elizondo', 'Javier Bautista']",1,0
+46,146,Rosario Orozco,[],comunidad_1,"['Eduardo Aldrete', 'Efraín Beltrán', 'Patricia Morales', 'Sofía Aguilar']",1,0
+47,147,Inés Delatorre,[],comunidad_1,"['Gabriela Medina', 'Ana María Fernández', 'Eduardo Mares', 'Elena Espinoza']",2,9
+48,148,Gabriela Medina,[],comunidad_1,"['Rubén Becerra', 'Javier Lara', 'Óscar Mata', 'Víctor Elizondo', 'Roberto Castañeda', 'Mario Herrera']",1,0
+49,149,Teresa Delatorre,[],comunidad_1,"['Víctor Elizondo', 'Gabriela Medina', 'Victoria Vásquez']",2,8
+50,150,Agustín Martínez,[],comunidad_1,"['Patricia Chávez', 'Eduardo Rangel', 'Andrea Becerra', 'Ignacio Álvarez', 'Andrea González', 'Armando Vega']",1,0
+51,151,Ernesto Escobar,[],comunidad_1,"['Alicia Flores', 'Javier Bautista', 'Patricia Chávez', 'José Soto', 'Agustín Martínez']",1,0
+52,152,Alejandra Cázares,[],comunidad_1,"['Gabriel Osorio', 'Federico Pérez', 'Elena Espinoza', 'Jorge Luis Ortiz']",1,0
+53,153,Gabriela Romero,[],comunidad_1,"['Rosario Orozco', 'María Duarte', 'Andrea Becerra', 'Omar Ortiz']",2,9
+54,154,Jorge Luis Ortiz,[],comunidad_1,"['Inés Pineda', 'Margarita Palacios', 'Carolina Espino', 'Francisco Hernández', 'José Soto']",2,9
+55,155,Armando Vega,[],comunidad_1,"['José Soto', 'Omar Luna', 'Ana Laura López', 'Margarita Palacios', 'Javier Lara']",1,0
+56,156,Omar Ortiz,[],comunidad_1,"['José Soto', 'Gabriel Benitez', 'Margarita Benitez', 'Óscar Mata']",1,0
+57,157,Efraín Martínez,[],comunidad_1,"['Ana María Luna', 'Vanessa Guerrero', 'Víctor Elizondo', 'Inés Delatorre', 'Óscar Mata', 'Pamela Chavez']",2,8
+58,158,Mario Herrera,[],comunidad_1,"['Andrea Chavez', 'Andrea González', 'Mauricio Molina', 'Jorge Martínez', 'Vanessa Guerrero']",1,0
+59,159,Roberto Silva,[],comunidad_1,"['Vanessa Navarro', 'Jorge Luis Ortiz', 'Juan Carlos Campos', 'Gabriel Benitez']",2,8
+60,160,Julio Gómez,[],comunidad_1,"['Ana María Castañeda', 'Natalia Bustamante', 'Armando Vega', 'Victoria Vásquez', 'Alicia Flores', 'José Miranda']",2,9
+61,161,Agustín Molina,[],comunidad_1,"['José Soto', 'Adriana Guerrero', 'Verónica Vásquez']",1,0
+62,162,Alicia Flores,[],comunidad_1,"['Francisco Hernández', 'Ignacio Álvarez', 'Juan Barrera', 'Gabriel Benitez', 'María Díaz', 'Andrea Becerra']",2,9
+63,163,Pamela Aldrete,[],comunidad_1,"['Jorge Luis Ortiz', 'Omar Luna', 'Patricia Chávez', 'Sergio Duarte', 'Gabriel Benitez']",1,0
+64,164,Eduardo Mares,[],comunidad_1,"['Óscar Mata', 'Óscar Hernández', 'Víctor Elizondo', 'Ignacio Álvarez', 'Alicia León', 'Eduardo Díaz']",2,8
+65,165,Lorena Ibarra,[],comunidad_1,"['Margarita Benitez', 'Inés Delatorre', 'Héctor Elizondo', 'Ana Laura López']",2,9
+66,166,Ana Laura Amaya,[],comunidad_1,"['Gabriela Medina', 'Efraín Martínez', 'Mauricio Molina', 'Juan Carlos Campos', 'Patricia Morales']",1,0
+67,167,Adriana Guerrero,[],comunidad_1,"['Rubén Acosta', 'Jorge Luis Aguilar', 'Ana María Castañeda', 'Efraín Beltrán']",1,0
+68,168,Daniela Osorio,[],comunidad_1,"['David Palacios', 'Alicia León', 'Gabriel Benitez', 'Estela Aldrete']",2,9
+69,169,Rubén Acosta,[],comunidad_1,"['Héctor Elizondo', 'Vanessa Guerrero', 'Juan Barrera', 'Victoria Vásquez', 'Vanessa Navarro']",2,9
+70,170,Ana Laura López,[],comunidad_1,"['Andrea Campos', 'Gabriela Romero', 'Alma Rosa Castro', 'Javier Bautista']",2,9
+71,171,Víctor Elizondo,[],comunidad_1,"['Efraín Beltrán', 'Pamela Aldrete', 'Raúl Orozco']",1,10
+72,172,Alan Rodríguez,[],comunidad_1,"['Daniela Osorio', 'Pamela Chavez', 'Héctor Elizondo', 'Inés Delatorre', 'Juan López', 'Andrea Campos']",1,0
+73,173,Alicia González,[],comunidad_1,"['Verónica Vásquez', 'Vanessa Navarro', 'Lorena Ibarra', 'Daniela Escobar', 'Andrea Campos']",2,7
+74,174,Óscar Mata,[],comunidad_1,"['Pamela Aldrete', 'Roberto Silva', 'Margarita Rodríguez', 'Sergio Duarte']",1,10
+75,175,Jorge Martínez,[],comunidad_1,"['Patricia Chávez', 'Eduardo Aldrete', 'Roberto Silva', 'Mario Herrera']",1,0
+76,176,Elena Espinoza,[],comunidad_1,"['Alma Gutiérrez', 'Agustín Molina', 'Daniela Osorio', 'Juan Pablo Aldrete']",2,8
+77,177,Francisco Hernández,[],comunidad_1,"['Daniela Osorio', 'Mario Herrera', 'Gabriel Benitez', 'Ignacio Álvarez', 'Verónica Vásquez', 'Alejandra Cázares']",1,0
+78,178,Héctor Elizondo,[],comunidad_1,"['Alicia González', 'Andrea Luna', 'Raúl Orozco', 'José Beltrán']",1,0
+79,179,Eduardo Aldrete,[],comunidad_1,"['Óscar Mata', 'Juan Carlos Campos', 'Mauricio Molina', 'Gabriel Osorio']",2,8
+80,180,Alma Gutiérrez,[],comunidad_1,"['Ana Laura Amaya', 'Estela Aldrete', 'Andrea Luna']",1,0
+81,181,Angélica Moreno,[],comunidad_1,"['Gabriel Benitez', 'Juan Pablo Aldrete', 'Andrea Campos', 'Francisco Hernández']",1,0
+82,182,Daniela Escobar,[],comunidad_1,"['Rosario Orozco', 'Ana María Luna', 'Ignacio Álvarez', 'Eduardo Aldrete']",2,9
+83,183,Verónica Vásquez,[],comunidad_1,"['Mario Herrera', 'Gabriel Benitez', 'Federico Pérez', 'Gabriel Osorio']",1,0
+84,184,Andrea Campos,[],comunidad_1,"['María Duarte', 'Gabriela Romero', 'Inés Delatorre', 'Patricia Morales', 'Ernesto Escobar']",2,9
+85,185,Mauricio Molina,[],comunidad_1,"['Gabriel Osorio', 'Roberto Silva', 'Óscar Mata', 'Ana María Luna']",2,9
+86,186,Margarita Rodríguez,[],comunidad_1,"['Omar Luna', 'Juan Pablo Aldrete', 'Patricia Chávez', 'David Palacios', 'Víctor Elizondo']",2,9
+87,187,María Duarte,[],comunidad_1,"['María Díaz', 'Victoria Vásquez', 'Ana Laura López', 'José Miranda', 'Jorge Luis Ortiz']",1,0
+88,188,Roberto Sánchez,[],comunidad_1,"['Ana María Fernández', 'Eduardo Mares', 'Teresa Delatorre', 'Gabriela Romero', 'Adriana Cervantes']",2,8
+89,189,Juan López,[],comunidad_1,"['Daniela Delatorre', 'José Miranda', 'Federico Pérez', 'Teresa Delatorre']",1,0
+90,190,Eduardo Rangel,[],comunidad_1,"['Pamela Chavez', 'Adriana Cervantes', 'Rubén Becerra', 'Ana María Luna']",1,0
+91,191,Raúl Orozco,[],comunidad_1,"['Sofía Aguilar', 'Jorge Luis Ortiz', 'Héctor Elizondo', 'Omar Luna', 'Alicia González', 'Efraín Mares']",2,9
+92,192,Pamela Chavez,[],comunidad_1,"['Eduardo Díaz', 'Andrea Campos', 'Roberto Silva', 'Inés Pineda']",2,8
+93,193,Omar Luna,[],comunidad_1,"['Patricia Morales', 'Sergio Duarte', 'Eduardo Díaz']",2,9
+94,194,Vanessa Guerrero,[],comunidad_1,"['Ana Laura López', 'Daniela Delatorre', 'Mauricio Molina']",2,8
+95,195,Juan Barrera,[],comunidad_1,"['José Delatorre', 'Salvador Delgado', 'Roberto Castañeda', 'Rubén Acosta', 'Óscar Mata']",2,9
+96,196,José Miranda,[],comunidad_1,"['Lorena Ibarra', 'Roberto Sánchez', 'Mauricio Molina', 'Laura Elena Palacios', 'Omar Luna']",2,9
+97,197,Carolina Espino,[],comunidad_1,"['Manuel Escobar', 'Jorge Luis Aguilar', 'Gabriela Romero', 'Sofía Aguilar', 'Ana María Castañeda']",1,0
+98,198,Gabriel Soto,[],comunidad_1,"['Ignacio Álvarez', 'Daniela Escobar', 'Juan López', 'Armando Vega', 'David Palacios', 'Manuel Escobar']",1,0
+99,199,Vanessa Sánchez,['virus'],comunidad_1,"['Alicia González', 'Inés Delatorre', 'José Soto', 'Víctor Elizondo', 'Óscar Mata']",2,7
