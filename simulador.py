@@ -7,7 +7,8 @@ class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.set_default_size(800, 600)
-        #header
+
+        # header
         header = Gtk.HeaderBar.new()
         self.set_titlebar(titlebar=header)
         self.set_title("Simulador epidemiologico")
@@ -46,6 +47,7 @@ class MainWindow(Gtk.ApplicationWindow):
         about_menu.connect("activate", self.show_about_dialog)
         self.add_action(about_menu)
         menu.append("Acerca de", "win.about")
+        
 
         #scroll
         
@@ -110,6 +112,8 @@ class MainWindow(Gtk.ApplicationWindow):
         columns = self.treeview.get_columns()
         for column in columns:
             self.treeview.remove_column(column)
+
+
 
 
 
